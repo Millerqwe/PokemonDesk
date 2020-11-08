@@ -1,8 +1,8 @@
 import React from 'react';
-import classname from '../../helper/services';
+import classname from '../../utils';
 
 import styles from './Content.module.scss';
 
 const cn = classname(styles);
 
-export const Content = () => <div className={cn('page__content')} />;
+export const Content = ({ children }) => <div className={cn('page__content')}>{children}</div>;

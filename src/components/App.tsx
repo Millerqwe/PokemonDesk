@@ -1,23 +1,33 @@
-import React, { FunctionComponent } from 'react';
-import classname from '../helper/services';
-
+import React, { FC } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import classname from '../utils';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { Content } from './Content';
+import { HomePage } from '../pages/Home';
+import { PokedexPage } from '../pages/Pokedex';
 
 import '../style/main.scss';
 import styles from './App.module.scss';
 
-const sn = classname(styles);
+const cn = classname(styles);
 
-const App: FunctionComponent = () => {
+const App: FC<any> = () => {
   return (
-    <div className={sn('page')}>
+    <div className={cn('page')}>
       <Header />
-      <Content />
+
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/pokedex" component={PokedexPage} />
+      </Switch>
+
       <Footer />
     </div>
   );
 };
 
-export default App;
+export default (
+  <Router>
+    <App />
+  </Router>
+);

@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from '../../helper/services';
+import classnames from '../../utils';
 
 // import styles from './footer.module.scss';
 
