@@ -34,7 +34,7 @@ module.exports = {
             options: {
               modules: {
                 mode: 'local',
-                localIdentName: '[name]--[local]--[hash:base64:4]',
+                localIdentName: '[local]--[hash:base64:4]',
                 auto: /\.module\.\w+$/i,
               },
             },
@@ -44,7 +44,23 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: ['svg-inline-loader'],
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
     ],
   },
@@ -53,10 +69,16 @@ module.exports = {
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
   ],
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    poll: 1000,
+  },
   devServer: {
     port: 3000,
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
   devtool: 'source-map',
 };

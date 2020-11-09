@@ -1,0 +1,32 @@
+@import '../../style/base/variables';
+
+.home {
+  max-width: 1125px;
+  display: flex;
+  padding-bottom: 82px;
+  margin: 0 auto;
+
+  &__content {
+    width: 516px;
+    padding-top: 128px;
+  }
+
+  &__description {
+    padding-top: 64px;
+
+    color: $dark;
+    font-size: 32px;
+    line-height: 37px;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  &__button {
+    padding-top: 64px;
+  }
+
+  &__parallax {
+    position: relative;
+    flex-grow: 1;
+  }
+}

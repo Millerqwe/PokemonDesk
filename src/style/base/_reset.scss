@@ -1,4 +1,34 @@
-body,
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
 ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 400;
+}
+
+p {
   margin: 0;
 }
