@@ -1,33 +1,15 @@
 import React, { FC } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import classname from '../utils';
-import { Header } from './Header';
-import { Footer } from './Footer';
-import { HomePage } from '../pages/Home';
-import { PokedexPage } from '../pages/Pokedex';
+import { useRoutes } from 'hookrouter';
+import { NotFoundPage } from '../pages/NotFound';
 
 import '../style/main.scss';
-import styles from './App.module.scss';
+import {routes} from '../routes';
 
-const cn = classname(styles);
 
 const App: FC<any> = () => {
-  return (
-    <div className={cn('page')}>
-      <Header />
+  const match = useRoutes(routes);
 
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/pokedex" component={PokedexPage} />
-      </Switch>
-
-      <Footer />
-    </div>
-  );
+  return match || <NotFoundPage />;
 };
 
-export default (
-  <Router>
-    <App />
-  </Router>
-);
+export default App;

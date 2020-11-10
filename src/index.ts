@@ -3,6 +3,6 @@ import ReactDom from 'react-dom';
 import App from './components/App';
 
 ReactDom.render(
-  React.createElement(() => App),
+  React.createElement(App),
   document.querySelector('.root'),
 );
