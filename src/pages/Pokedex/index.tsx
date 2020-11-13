@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from '../../utils';
 import { Page } from '../../components/Page';
+import { Filter } from './components/Filter';
+import { Cards } from './components/Cards';
 
 import styles from './Pokedex.module.scss';
 
@@ -13,10 +15,9 @@ export const PokedexPage = () => {
         <p className={cn('pokedex__title')}>
           800 <b>Pokemons</b> for you to choose your favorite
         </p>
+        <Filter />
+        <Cards />
       </div>
-      {/* Searcher */}
-      {/* FilterControllers */}
-      {/* Cards */}
     </Page>
   );
 };

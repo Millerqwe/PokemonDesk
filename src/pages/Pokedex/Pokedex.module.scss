@@ -1,11 +1,11 @@
 @import '../../style/base/variables';
 
 .pokedex {
-  background-color: $white;
-  height: 100vh;
+  background-color: $white-light;
 
   &__title {
     padding-top: 73px;
+    padding-bottom: 34px;
     text-align: center;
     letter-spacing: 3px;
     font-style: normal;

@@ -3,10 +3,9 @@ import classnames from '../../utils';
 import { Page } from '../../components/Page';
 import { Button } from '../../components/Button';
 import { Parallax } from './components/Parallax';
-import { Heading, Level } from './components/Heading';
+import { Heading, Level } from '../../components/Heading';
 
 import styles from './Home.module.scss';
-
 
 const cn = classnames(styles);
 
@@ -14,7 +13,7 @@ export const HomePage: FC = () => (
   <Page>
     <div className={cn('home')}>
       <div className={cn('home__content')}>
-        <Heading level={Level.one}>
+        <Heading level={Level.one} classNames={cn('home__heading')}>
           <b>Find</b> all your favorite <b>Pokemon</b>
         </Heading>
         <p className={cn('home__description')}>
