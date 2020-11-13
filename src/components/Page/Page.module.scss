@@ -1,6 +1,7 @@
-@import '../style/base/variables';
+@import '../../style/base/variables';
 
 .page {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
