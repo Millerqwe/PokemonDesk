@@ -2,43 +2,47 @@ import React from 'react';
 import { HomePage } from './pages/Home';
 import { PokedexPage } from './pages/Pokedex';
 
+export enum LinkEnum {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  LEGENDARIES = '/legendaries',
+  DOCUMENTATION = '/documentation',
+}
 
 interface IGeneralMenuItem {
   title: string;
-  link: string;
-  component: () => JSX.Element
+  link: LinkEnum;
+  component: () => JSX.Element;
 }
 
 interface IRoutes {
-  [k: string]: () => JSX.Element
+  [k: string]: () => JSX.Element;
 }
 
 export const GENERAL_MENU_ITEMS: Array<IGeneralMenuItem> = [
   {
     title: 'Home',
-    link: '/',
-    component: () => <HomePage />
+    link: LinkEnum.HOME,
+    component: () => <HomePage />,
   },
   {
     title: 'Pokédex',
-    link: '/pokedex',
-    component: () => <PokedexPage />
+    link: LinkEnum.POKEDEX,
+    component: () => <PokedexPage />,
   },
   {
     title: 'Legendaries',
-    link: './legendaries',
-    component: () => <></>
+    link: LinkEnum.LEGENDARIES,
+    component: () => <></>,
   },
   {
     title: 'Documentation',
-    link: './documentation',
-    component: () => <></>
+    link: LinkEnum.DOCUMENTATION,
+    component: () => <></>,
   },
-]
+];
 
-export const routes = GENERAL_MENU_ITEMS.reduce(
-  (acc: IRoutes, {link, component}) => {
-    acc[link] = component;
-    return acc;
-  }, {}
-)
+export const routes = GENERAL_MENU_ITEMS.reduce((acc: IRoutes, { link, component }) => {
+  acc[link] = component;
+  return acc;
+}, {});

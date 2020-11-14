@@ -6,10 +6,9 @@ import { ReactComponent as Logo } from './assets/Logo.svg';
 
 import styles from './Header.module.scss';
 
-
 const cn = classnames(styles);
 
-export const Header: FC = () => {
+const Header: FC = () => {
   const path = usePath();
 
   return (
@@ -20,17 +19,14 @@ export const Header: FC = () => {
         </a>
         <ul className={cn('header__navigation', 'navigation')}>
           {GENERAL_MENU_ITEMS.map(({ title, link }) => (
-            <li className={cn(
-              'navigation__link',
-              {'navigation__link--active': link === path}
-            )} key={title}>
-              <A href={link}>
-                {title}
-              </A>
+            <li className={cn('navigation__link', { 'navigation__link--active': link === path })} key={title}>
+              <A href={link}>{title}</A>
             </li>
           ))}
         </ul>
       </div>
     </header>
   );
-}
+};
+
+export default React.memo(Header);

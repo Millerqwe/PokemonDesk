@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { navigate } from 'hookrouter';
+import { LinkEnum } from '../../routes';
 
 import s from './NotFound.module.scss';
 
@@ -14,7 +15,7 @@ export const NotFoundPage = () => {
           <span> </span>
           <span className={cn(s.blackText)}>has won this time</span>
         </p>
-        <button className={cn(s.returnButton)} type="button" onClick={() => navigate('/')}>
+        <button className={cn(s.returnButton)} type="button" onClick={() => navigate(LinkEnum.HOME)}>
           Return
         </button>
       </div>

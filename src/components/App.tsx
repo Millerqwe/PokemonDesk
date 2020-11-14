@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import { useRoutes } from 'hookrouter';
+import { Page } from './Page';
 import { NotFoundPage } from '../pages/NotFound';
 
 import '../style/main.scss';
-import {routes} from '../routes';
+import { routes } from '../routes';
 
-
-const App: FC<any> = () => {
+const App: FC = () => {
   const match = useRoutes(routes);
 
-  return match || <NotFoundPage />;
+  return match ? <Page>{match}</Page> : <NotFoundPage />;
 };
 
 export default App;

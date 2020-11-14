@@ -1,6 +1,8 @@
 @import '../../style/base/variables';
 
 .pokedex {
+  height: 100%;
+  min-height: 100vh;
   background-color: $white-light;
 
   &__title {
