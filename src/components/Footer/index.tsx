@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC, memo } from 'react';
 import classnames from '../../utils';
 
 import styles from './Footer.module.scss';
 
 const cn = classnames(styles);
 
-export const Footer = () => <footer className={cn('page__footer')}>Подвал</footer>;
+const Footer: FC = () => <footer className={cn('page__footer')}>Подвал</footer>;
+
+export const memoFooter = memo(Footer);

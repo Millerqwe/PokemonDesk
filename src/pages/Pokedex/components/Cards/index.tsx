@@ -1,17 +1,19 @@
-import React, {FC} from 'react';
-import classname from '../../../../utils';
+import React, { FC } from 'react';
+import cn from 'classnames';
+import { Card } from '../Card';
 
-// import cards from './assets/cards.json';
+import s from './Cards.module.scss';
 
-
-const cn = classname('');
-
-export const Cards: FC = () => {
-  return (
-    <div className={cn('cards')}>
-      {
-        cards.map(card => card)
-      }
-    </div>
-  )
+interface CardsProps {
+  pokemons: Array<any>; // TOD Define correct types
 }
+
+export const Cards: FC<CardsProps> = ({ pokemons }) => {
+  return (
+    <div className={cn(s.root)}>
+      {pokemons.map(({ name, img, stats, types }) => (
+        <Card name={name[0].toUpperCase() + name.slice(1)} img={img} stats={stats} types={types} />
+      ))}
+    </div>
+  );
+};
