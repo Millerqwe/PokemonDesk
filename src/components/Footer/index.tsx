@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import classnames from '../../utils';
+import classnames from '../../utils/classnames';
 
 import styles from './Footer.module.scss';
 

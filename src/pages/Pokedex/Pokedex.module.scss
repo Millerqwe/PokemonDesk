@@ -1,18 +1,40 @@
 @import '../../style/base/variables';
 
 .pokedex {
-  height: 100%;
-  min-height: 100vh;
-  background-color: $white-light;
+    height: 100%;
+    min-height: 100vh;
+    background-color: $white-light;
 
-  &__title {
-    padding-top: 73px;
-    padding-bottom: 34px;
-    text-align: center;
-    letter-spacing: 3px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 35px;
-    line-height: 41px;
-  }
+    &__title {
+        padding-top: 73px;
+        padding-bottom: 34px;
+        text-align: center;
+        letter-spacing: 3px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 35px;
+        line-height: 41px;
+    }
+}
+
+.searcher {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchContainer {
+    padding-bottom: 36px;
+    margin: 0 auto;
+}
+
+.searchInput {
+    width: 1088px;
+    height: 53px;
+}
+
+.controls {
+    display: flex;
+    flex-basis: 100%;
+    padding-bottom: 53px;
+    margin: 0 auto;
 }
