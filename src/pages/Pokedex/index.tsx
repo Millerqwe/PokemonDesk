@@ -4,23 +4,19 @@ import { Cards } from './components/Cards';
 
 import s from './Pokedex.module.scss';
 import { useData } from '../../hook/getData';
-
-interface IPokemonsData {
-    count: number;
-    limit: number;
-    offset: number;
-    pokemons: object[];
-    total: number;
-}
+import { IPokemons } from '../../interface/pokemons';
+import { useDebounce } from '../../hook/useDebounce';
 
 const cn = classnames(s);
 const DEFAULT_OPTION_SIZE = 1;
 
 export const PokedexPage = () => {
     const [searchValue, setSearchValue] = useState('');
-    // FIX type defining
-    const { data, isLoading, isError } = useData('getPokemons', { name: searchValue }, [searchValue]);
-    const pokemons: IPokemonsData | null = data;
+    const debouncedSearchValue = useDebounce(searchValue, 500);
+
+    const { data, isLoading, isError } = useData<IPokemons>('getPokemons', { name: debouncedSearchValue }, [
+        debouncedSearchValue,
+    ]);
 
     const handleSearchOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(e.target.value);
@@ -36,8 +32,7 @@ export const PokedexPage = () => {
     return (
         <div className={cn('pokedex')}>
             <p className={cn('pokedex__title')}>
-                {/* @ts-ignore */}
-                {pokemons.total} <b>Pokemons</b> for you to choose your favorite
+                {data && data.total} <b>Pokemons</b> for you to choose your favorite
             </p>
 
             <div className={cn(s.searcher)}>
@@ -67,8 +62,7 @@ export const PokedexPage = () => {
                     </label>
                 </div>
             </div>
-            {/* @ts-ignore */}
-            <Cards pokemons={pokemons.pokemons} />
+            <Cards pokemons={data ? data.pokemons : []} />
         </div>
     );
 };

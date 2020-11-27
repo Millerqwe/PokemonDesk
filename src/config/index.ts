@@ -7,9 +7,15 @@ export const config = {
         endpoint: {
             getPokemons: {
                 method: 'GET',
-                uri: {
-                    pathname: '/api/v1/pokemons',
+                getUri: () => {
+                    return { pathname: '/api/v1/pokemons' };
                 },
+            },
+            getPokemon: {
+                method: 'GET',
+                getUri: (id: string | number) => ({
+                    pathname: `/api/v1/pokemon/${id}`,
+                }),
             },
         },
     },
